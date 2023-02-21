@@ -4,7 +4,8 @@
  * @author Mary Lisicki
  */
 
- public enum GrowingSpeed {
+ public enum GrowingSpeed 
+{
     FAST,
     SLOW
 }

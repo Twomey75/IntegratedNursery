@@ -11,7 +11,8 @@ import java.util.function.Predicate;
  * @author Mary Lisicki
  */
 
-public class Plant {
+public class Plant 
+{
     private long id;
     private static long latestId;
     private String genusSpecies;
@@ -38,6 +39,7 @@ public class Plant {
             this.id = latestId;
         }
         this.commonName = commonName;
+        this.zones = new HashMap<Integer, Zone>();
     }
 
     /**

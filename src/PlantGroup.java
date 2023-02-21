@@ -6,7 +6,8 @@
  * @author Sean Twomey
  */
 
-public enum PlantGroup {
+public enum PlantGroup 
+{
     ANGIOSPERMS,
     GYMNOSPERMS,
     PTERIDOPHYTES,

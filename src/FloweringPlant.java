@@ -4,7 +4,8 @@
  * @author 
  */
 
-public class FloweringPlant extends Plant {
+public class FloweringPlant extends Plant 
+{
        
     public FloweringPlant(String genusSpecies, String commonName, String plantGroupChoice, String localDateInput)
     {

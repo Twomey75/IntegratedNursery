@@ -6,7 +6,8 @@
  * @author Sean Twomey
  */
 
-public class Tree extends Plant {
+public class Tree extends Plant 
+{
     private GrowingSpeed growingSpeed;
 
     /**

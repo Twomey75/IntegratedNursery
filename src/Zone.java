@@ -6,6 +6,20 @@
  * @author Sean Twomey
  */
 
-public class Zone {
-    
+public class Zone 
+{
+    private int minTemperature;
+    private int maxTemperature;
+
+    public Zone(int zoneNumber)
+    {
+        switch(zoneNumber) {
+            case 1:
+                this.minTemperature = -100;
+                this.maxTemperature = -51;
+                break;
+            case 2:
+
+        }
+    }
 }
