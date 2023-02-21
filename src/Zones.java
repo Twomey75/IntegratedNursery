@@ -15,8 +15,8 @@ public class Zones
     private Zones()
     {
         zones = new HashMap<Integer, Zone>();
-        zones.put(1, Zone(1, -50));
-        zones.put(2, Zone(2, -50, -40));
+        zones.put(1, new Zone(1, -50));
+        zones.put(2, new Zone(2, -50, -40));
         
     }
 }
