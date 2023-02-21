@@ -12,14 +12,14 @@ import java.util.function.Predicate;
  */
 
 public class Plant {
-    private long id;
+    protected long id;
     private static long latestId;
-    private String genusSpecies;
-    private String commonName;
-    private PlantGroup plantGroup;
-    private LocalDate dateIntroduced;
-    private HashMap<Integer, Zone> zones;
-    private HashMap<String, Predicate<Plant>> plantTest;
+    protected String genusSpecies;
+    protected String commonName;
+    protected PlantGroup plantGroup;
+    protected LocalDate dateIntroduced;
+    protected HashMap<Integer, Zone> zones;
+    protected HashMap<String, Predicate<Plant>> plantTest;
 
     /**
      * Constructor for plant when there are no plants previously added
@@ -40,4 +40,7 @@ public class Plant {
     {
         return id;
     }
+
+    public 
+
 }

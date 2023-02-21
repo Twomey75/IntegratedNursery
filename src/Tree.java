@@ -10,13 +10,6 @@ public class Tree extends Plant {
     
     public Tree()
     {
-        if(latestId != 0) {
-            latestId = latestId + 1;
-            id = latestId;
-        }
-        else {
-            latestId = 4902;
-            id = latestId;
-        }
+        super(String genusSpecies);
     }
 }

@@ -8,10 +8,10 @@
 public class PlantDriver {
     private static Plant plant = new Plant();
     private static Plant plant2 = new Plant();
-    private static Plant plant3 = new Plant();
+    private static Tree tree = new Tree();
     public static void main(String[] args)  {
         System.out.println(plant.getPlantId());
         System.out.println(plant2.getPlantId());
-        System.out.println(plant3.getPlantId());
+        System.out.println(tree.getPlantId());
     }
 }

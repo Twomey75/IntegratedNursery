@@ -1,9 +1,13 @@
-public class FloweringPlant {
-    public class FloweringPlant extends Plant {
+/**
+ * 
+ * @version 
+ * @author 
+ */
+
+public class FloweringPlant extends Plant {
        
-        public FloweringPlant()
-        {
+    public FloweringPlant()
+    {
             
-        }
     }
 }
