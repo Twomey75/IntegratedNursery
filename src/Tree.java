@@ -7,9 +7,33 @@
  */
 
 public class Tree extends Plant {
-    
-    public Tree()
+    private GrowingSpeed growingSpeed;
+
+    /**
+     * Constructor for tree
+     * @param genusSpecies the genus species of the tree instance
+     * @param growingSpeedChoice the growing speed of the tree instance
+     */
+    public Tree(String genusSpecies, String commonName, String plantGroupChoice, String localDateInput, String growingSpeedChoice)
     {
-        super(String genusSpecies);
+        // Run constructor of super class plant
+        super(genusSpecies, commonName, plantGroupChoice, localDateInput);
+
+        //Case where the user puts in that growing speed is fast
+        if(growingSpeedChoice.equalsIgnoreCase("fast")) {
+            growingSpeed = GrowingSpeed.FAST;
+        }
+        //Case where the user puts in that growing speed is slow 
+        else if(growingSpeedChoice.equalsIgnoreCase("slow")) {
+            growingSpeed = GrowingSpeed.SLOW;
+        }
+    }
+
+    /**
+     * @return the growing speed of the tree
+     */
+    public GrowingSpeed getGrowingSpeed() 
+    {
+        return growingSpeed;
     }
 }
