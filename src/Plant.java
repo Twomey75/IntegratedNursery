@@ -38,8 +38,15 @@ public class Plant
             latestId = 4902;
             this.id = latestId;
         }
-        this.commonName = commonName;
+        if(commonName != null) {
+            this.commonName = commonName;
+        }
         this.zones = new HashMap<Integer, Zone>();
+
+        //Implementation of setting the year introduced I feel like I could make the body of the if statement more clean
+        if(validYearInput(localDateInput)) {
+            dateIntroduced = LocalDate.of(Integer.parseInt(localDateInput.substring(0,4)), Integer.parseInt(localDateInput.substring(5,7)), Integer.parseInt(localDateInput.substring(8,10)));
+        }
     }
 
     /**
@@ -72,6 +79,45 @@ public class Plant
     public PlantGroup getPlantGroup()
     {
         return plantGroup;
+    }
+
+    /**
+     * @return the date the plant was introduced to the Nursery
+     */
+    public LocalDate getDateIntroduced()
+    {
+        return dateIntroduced;
+    }
+
+    /**
+     * @return that the date added was valid or invalid int
+     * @param number the string with a number that is being tested to see if the string is a number
+     */
+    private boolean determineIfInt(String number)
+    {
+        try {
+            int testInt = Integer.parseInt(number);
+        }
+        catch (NumberFormatException nfe) {
+            //Case where the date number entered is invalid
+            return false;
+        }
+        //Case where the date number entered is valid
+        return true;
+    }
+
+    /**
+     * @return that the date added was valid or invalid int
+     * @param yearInput the year string the user initially puts in that gets checked
+     */
+    private boolean validYearInput(String yearInput)
+    {
+        if(yearInput.length() == 10 && determineIfInt(yearInput.substring(0,4)) && determineIfInt(yearInput.substring(5,7)) && determineIfInt(yearInput.substring(8,10))) {
+            // return true if the year is valid
+            return true;
+        }
+        //return false if the year is invalid
+        return false;
     }
 
 }
