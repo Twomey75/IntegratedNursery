@@ -12,7 +12,8 @@ import java.util.function.Predicate;
  */
 
 public class Plant {
-    static private long id;
+    private long id;
+    private static long latestId;
     private String genusSpecies;
     private String commonName;
     private PlantGroup plantGroup;
@@ -25,6 +26,18 @@ public class Plant {
      */
     public Plant()
     {
-        id = 4902;
+        if(latestId != 0) {
+            latestId = latestId + 1;
+            id = latestId;
+        }
+        else {
+            latestId = 4902;
+            id = latestId;
+        }
+    }
+
+    public long getPlantId()
+    {
+        return id;
     }
 }
