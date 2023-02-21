@@ -19,7 +19,9 @@ public class Zone
                 this.maxTemperature = -51;
                 break;
             case 2:
-
+                this.minTemperature = -50;
+                this.maxTemperature = -40;
+                break;
         }
     }
 }
