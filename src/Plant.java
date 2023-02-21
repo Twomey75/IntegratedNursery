@@ -19,7 +19,7 @@ public class Plant
     private String commonName;
     private PlantGroup plantGroup;
     private LocalDate dateIntroduced;
-    private HashMap<Integer, Zone> zones;
+    private static HashMap<Integer, Zone> zones;
     private HashMap<String, Predicate<Plant>> plantTest;
 
     /**

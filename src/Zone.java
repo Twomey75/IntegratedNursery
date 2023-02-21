@@ -1,27 +1,39 @@
 /**
  * 
- * This class represents the different zones a plant can belong to
+ * This class represents a single zone a plant can belong to
  * 
  * @version 2/20/2023
  * @author Sean Twomey
  */
 
-public class Zone 
-{
-    private int minTemperature;
-    private int maxTemperature;
+public class Zone {
+    private int lowTemperature;
+    private int highTemperature;
+    private int zoneNumber;
 
-    public Zone(int zoneNumber)
+    public Zone(int zoneNumber, int lowTemperature, int highTemperature)
     {
-        switch(zoneNumber) {
-            case 1:
-                this.minTemperature = -100;
-                this.maxTemperature = -51;
-                break;
-            case 2:
-                this.minTemperature = -50;
-                this.maxTemperature = -40;
-                break;
+        this.lowTemperature = lowTemperature;
+        this.highTemperature = highTemperature;
+        this.zoneNumber = zoneNumber;
+    }
+
+    //Special condition for zone 1 where only the high is defined at -50 degrees
+    public Zone(int zoneNumber, int singleTemp)
+    {
+        if(zoneNumber == 1){
+            this.highTemperature = singleTemp;
+            this.zoneNumber = zoneNumber;
         }
+    }
+
+    public int getLowTemp()
+    {
+        return lowTemperature;
+    }
+
+    public int getHighTemp()
+    {
+        return highTemperature;
     }
 }
