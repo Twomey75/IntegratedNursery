@@ -41,7 +41,10 @@ public class Plant
         if(commonName != null) {
             this.commonName = commonName;
         }
-        this.zones = new HashMap<Integer, Zone>();
+        if(genusSpecies != null) {
+            this.genusSpecies = genusSpecies;
+        }
+        Plant.zones = new HashMap<Integer, Zone>();
 
         //Implementation of setting the year introduced I feel like I could make the body of the if statement more clean
         if(validYearInput(localDateInput)) {
@@ -118,6 +121,19 @@ public class Plant
         }
         //return false if the year is invalid
         return false;
+    }
+
+    public HashMap<Integer, Zone> getZones()
+    {
+        return zones;
+    }
+
+    /**
+     * @return the common name and genus of the plant formated
+     */
+    public String toString() 
+    {
+        return getCommonName() + " (" + getGenusSpecies() + ")";
     }
 
 }

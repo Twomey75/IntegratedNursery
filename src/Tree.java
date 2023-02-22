@@ -28,6 +28,11 @@ public class Tree extends Plant
         else if(growingSpeedChoice.equalsIgnoreCase("slow")) {
             growingSpeed = GrowingSpeed.SLOW;
         }
+        //Case where no valid speed is put in so it is assumed slow
+        else {
+            growingSpeed = GrowingSpeed.SLOW;
+        }
+
     }
 
     /**
@@ -36,5 +41,14 @@ public class Tree extends Plant
     public GrowingSpeed getGrowingSpeed() 
     {
         return growingSpeed;
+    }
+
+    /**
+     * @Override the original toString() method in Plant
+     * @return the formated string of the tree
+     */
+    public String toString() 
+    {
+        return getCommonName() + " (" + getGenusSpecies() + ")," + " a " + growingSpeed.toString().toLowerCase() + "-growing tree.";
     }
 }

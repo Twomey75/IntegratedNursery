@@ -1,0 +1,4 @@
+This is just a small blurb of things I wanted to write down
+* We should have hard coded plants that show up before what the user inputs
+* Zone should be one class with a private constructor that also sets up the static HashMap of zones
+* Should have a polyMorphic collection of plants that uses lambdas to evaluate experience
