@@ -7,7 +7,7 @@
 
 public class NurseryDriver 
 {
-    private static Plant plant = new Plant("The one from Wall-E", "A leaf idk", "Gymnosperm", "1984-01-20");
+    private static Plant plant = new Plant("plant", "A leaf idk", "Gymnosperm", "1984-01-20");
     private static Tree tree = new Tree("aaaa", "aa", "Bryophytes", "2003-10-03", "sLoW");
     public static void main(String[] args)  {
         System.out.println(plant.getPlantId());
