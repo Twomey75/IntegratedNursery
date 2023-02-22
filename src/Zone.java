@@ -6,7 +6,6 @@ import java.util.HashMap;
  * @version 2/22/2023
  * @author Sean Twomey
  * @author Mary Lisicki
- * New change
  */
 
 public class Zone {
