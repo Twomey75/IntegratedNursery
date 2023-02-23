@@ -1,7 +1,7 @@
 /**
  * This class is the growing speed of the tree
  * @version 2/21/2023
- * @author Mary Lisicki
+ * @author Sean Twomey
  */
 
  public enum GrowingSpeed 

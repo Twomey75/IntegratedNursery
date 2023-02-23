@@ -15,22 +15,22 @@ public class Tree extends Plant
      * @param genusSpecies the genus species of the tree instance
      * @param growingSpeedChoice the growing speed of the tree instance
      */
-    public Tree(String genusSpecies, String commonName, String plantGroupChoice, String localDateInput, String growingSpeedChoice)
+    public Tree(String genusSpecies, String commonName, String localDateInput, int lowestZoneTemp, int HighestZoneTemp, String growingSpeedChoice)
     {
         // Run constructor of super class plant
-        super(genusSpecies, commonName, plantGroupChoice, localDateInput);
+        super(genusSpecies, commonName, null, localDateInput, lowestZoneTemp, HighestZoneTemp);
 
-        //Case where the user puts in that growing speed is fast
+        // Case where the user puts in that growing speed is fast
         if(growingSpeedChoice.equalsIgnoreCase("fast")) {
             growingSpeed = GrowingSpeed.FAST;
         }
-        //Case where the user puts in that growing speed is slow 
+        // Case where the user puts in that growing speed is slow 
         else if(growingSpeedChoice.equalsIgnoreCase("slow")) {
             growingSpeed = GrowingSpeed.SLOW;
         }
-        //Case where no valid speed is put in so it is assumed slow
+        // Case where no valid speed is put in so growing speed assumes a default value of null
         else {
-            growingSpeed = GrowingSpeed.SLOW;
+            growingSpeed = null;
         }
 
     }
