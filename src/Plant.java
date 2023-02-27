@@ -31,8 +31,8 @@ public class Plant
      * Constructor for plant
      * @param genusSpecies the genus species of the plant
      * @param commonName the commonName of the plant
-     * @param plantGroupChoice the plant group chose for the plant being entered to the nursery
-     * @param localDateInput the 
+     * @param plantGroupChoice the plant group chosen for the plant being added to the nursery
+     * @param localDateInput the date of entry chosen for the plant being added to the nursery
      */
     public Plant(String genusSpecies, String commonName, String plantGroupChoice, String dateInput, int lowestTemp, int highestTemp)
     {
@@ -52,7 +52,7 @@ public class Plant
         this.genusSpecies = checkGenusNameValidity(genusSpecies);
         // Assign a plant group if input is valid and matches a plant group listed in PlantGroups
         this.plantGroup = checkPlantGroupValidity(plantGroupChoice);
-        // Implementation of setting the year introduced a method could be made to make the assignment of dateIntroduced more clean
+        // Implementation of setting the year introduced, a method could be made to make the assignment of dateIntroduced more clean
         if(validYearInput(dateInput)) {
             dateIntroduced = LocalDate.of(Integer.parseInt(dateInput.substring(0,4)), Integer.parseInt(dateInput.substring(5,7)), Integer.parseInt(dateInput.substring(8,10)));
         }
