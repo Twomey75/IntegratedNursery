@@ -55,7 +55,7 @@ public class Tree extends Plant
         }
         // Case where the growing speed is not known
         else {
-            return "No-Info";
+            return getDefaultName();
         }
     }
 

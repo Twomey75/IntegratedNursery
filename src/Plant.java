@@ -20,6 +20,8 @@ public class Plant
     private PlantGroup plantGroup;
     private LocalDate dateIntroduced;
     private HashMap<Integer, Zone> zones;
+    private static final String defaultName = "No-Info";
+
     public static HashMap<String, Predicate<Plant>> plantTest;
         static {
             plantTest = new HashMap<>();
@@ -47,7 +49,7 @@ public class Plant
             this.id = latestId;
         }
         // Assign a common name if meets proper requirements
-        this.commonName = checkCommonNameValidity(commonName);
+        this.commonName = determineCommonName(commonName);
         // Assign a genusSpecies name if it meets the proper requirements
         this.genusSpecies = checkGenusNameValidity(genusSpecies);
         // Assign a plant group if input is valid and matches a plant group listed in PlantGroups
@@ -97,6 +99,14 @@ public class Plant
     }
 
     /**
+     * @return the default value that gets assigned to a name field
+     */
+    public String getDefaultName()
+    {
+        return defaultName;
+    }
+
+    /**
      * @return the group the plant belongs to as a string
      */
     public String getPlantGroupAsString()
@@ -107,7 +117,7 @@ public class Plant
         }
         // Case where the plant group is not known
         else {
-            return "No-Info";
+            return defaultName;
         }
     }
 
@@ -117,6 +127,19 @@ public class Plant
     public LocalDate getDateIntroduced()
     {
         return dateIntroduced;
+    }
+
+    /**
+     * @return the date the plant was introduced to the Nursery as a string
+     */
+    public String getDateIntroducedAString()
+    {
+        if(dateIntroduced != null) {
+            return dateIntroduced.toString();
+        }
+        else {
+            return defaultName;
+        }
     }
 
     /**
@@ -175,7 +198,7 @@ public class Plant
             return genusName.substring(0, 1).toUpperCase() + genusName.substring(1, genusName.length()).toLowerCase();
         }
         else {
-            return "No-Info";
+            return defaultName;
         }
     }
 
@@ -210,13 +233,13 @@ public class Plant
     /**
      * @return the common Name input if it meets the rules of a name for a common name
      */
-    private static String checkCommonNameValidity(String commonName)
+    private static String determineCommonName(String commonName)
     {
         if(commonName != null && !commonName.isEmpty()) {
             return commonName.substring(0, 1).toUpperCase() + commonName.substring(1, commonName.length());
         }
         else {
-            return "No-Info";
+            return defaultName;
         }
     }
 
