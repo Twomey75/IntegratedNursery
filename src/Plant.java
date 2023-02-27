@@ -20,7 +20,6 @@ public class Plant
     private PlantGroup plantGroup;
     private LocalDate dateIntroduced;
     private HashMap<Integer, Zone> zones;
-    private HashMap<String, Predicate<Plant>> plantTest;
 
     /**
      * Constructor for plant
@@ -49,6 +48,10 @@ public class Plant
             dateIntroduced = LocalDate.of(Integer.parseInt(localDateInput.substring(0,4)), Integer.parseInt(localDateInput.substring(5,7)), Integer.parseInt(localDateInput.substring(8,10)));
         }
         populateZones(lowestZoneTemp, HighestZoneTemp);
+        public static HashMap<String, Predicate<Plant>> plantTest = new HashMap<String, Predicate<Plant>>();
+        static {
+            
+        }
     }
 
     /**
