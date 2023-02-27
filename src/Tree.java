@@ -20,19 +20,20 @@ public class Tree extends Plant
         // Run constructor of super class plant
         super(genusSpecies, commonName, null, localDateInput, lowestZoneTemp, HighestZoneTemp);
 
-        // Case where the user puts in that growing speed is fast
-        if(growingSpeedChoice.equalsIgnoreCase("fast")) {
-            growingSpeed = GrowingSpeed.FAST;
+        if(growingSpeedChoice != null) {
+            // Case where the user puts in that growing speed is fast
+            if(growingSpeedChoice.equalsIgnoreCase("fast")) {
+                growingSpeed = GrowingSpeed.FAST;
+            }
+            // Case where the user puts in that growing speed is slow 
+            else if(growingSpeedChoice.equalsIgnoreCase("slow")) {
+                growingSpeed = GrowingSpeed.SLOW;
+            }
+            // Case where no valid speed is put in so growing speed assumes a default value of null
+            else {
+                growingSpeed = null;
+            }
         }
-        // Case where the user puts in that growing speed is slow 
-        else if(growingSpeedChoice.equalsIgnoreCase("slow")) {
-            growingSpeed = GrowingSpeed.SLOW;
-        }
-        // Case where no valid speed is put in so growing speed assumes a default value of null
-        else {
-            growingSpeed = null;
-        }
-
     }
 
     /**
@@ -44,11 +45,32 @@ public class Tree extends Plant
     }
 
     /**
+     * @return the growing speed of the tree as a string
+     */
+    public String getGrowingSpeedAsString() 
+    {
+        // Case where the growing speed is known
+        if(growingSpeed != null) {
+            return growingSpeed.toString().toLowerCase();
+        }
+        // Case where the growing speed is not known
+        else {
+            return "No-Info";
+        }
+    }
+
+    /**
      * @Override the original toString() method in Plant
      * @return the formated string of the tree
      */
     public String toString() 
     {
-        return getCommonName() + " (" + getGenusSpecies() + ")," + " a " + growingSpeed.toString().toLowerCase() + "-growing tree.";
+        // Case where there is a known growing speed
+        if(growingSpeed != null) {
+            return getCommonName() + " (" + getGenusSpecies() + ")," + " a " + getGrowingSpeedAsString() + "-growing tree.";
+        }
+        else {
+            return getCommonName() + " (" + getGenusSpecies() + ")," + " a tree with No info on it's growing Speed.";
+        }
     }
 }
