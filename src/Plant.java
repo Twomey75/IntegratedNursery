@@ -46,42 +46,12 @@ public class Plant
             latestId = 4902;
             this.id = latestId;
         }
-        // Assign a common name if it is not null
-        if(commonName != null && !commonName.isEmpty()) {
-            this.commonName = commonName;
-        }
-        // Assign No Info if commonName is null or empty
-        else {
-            this.commonName = "No-Info";
-        }
-        // Assign a genusSpecies if the input is not null
-        if(genusSpecies != null && !genusSpecies.isEmpty()) {
-            this.genusSpecies = genusSpecies;
-        }
-        // Assign No Info if genusSpecies is null or empty
-        else {
-            this.genusSpecies = "No-Info";
-        }
-        // Assign a plant group to the plant
-        if(plantGroupChoice == null) {
-            this.plantGroup = null;
-        }
-        else if(plantGroupChoice.equalsIgnoreCase("ANGIOSPERMS")) {
-            this.plantGroup = PlantGroup.ANGIOSPERMS;
-        }
-        else if(plantGroupChoice.equalsIgnoreCase("GYMNOSPERMS")) {
-            this.plantGroup = PlantGroup.GYMNOSPERMS;
-        }
-        else if(plantGroupChoice.equalsIgnoreCase("PTERIDOPHYTES")) {
-            this.plantGroup = PlantGroup.PTERIDOPHYTES;
-        }
-        else if(plantGroupChoice.equalsIgnoreCase("BRYOPHYTES")) {
-            this.plantGroup = PlantGroup.BRYOPHYTES;
-        }
-        // Make plantgroup null if the inputed plantgroup doesn't match anything on record
-        else {
-            this.plantGroup = null;
-        }
+        // Assign a common name if meets proper requirements
+        this.commonName = checkCommonNameValidity(commonName);
+        // Assign a genusSpecies name if it meets the proper requirements
+        this.genusSpecies = checkGenusNameValidity(genusSpecies);
+        // Assign a plant group if input is valid and matches a plant group listed in PlantGroups
+        this.plantGroup = checkPlantGroupValidity(plantGroupChoice);
         // Implementation of setting the year introduced a method could be made to make the assignment of dateIntroduced more clean
         if(validYearInput(dateInput)) {
             dateIntroduced = LocalDate.of(Integer.parseInt(dateInput.substring(0,4)), Integer.parseInt(dateInput.substring(5,7)), Integer.parseInt(dateInput.substring(8,10)));
@@ -131,11 +101,11 @@ public class Plant
      */
     public String getPlantGroupAsString()
     {
-        // Case where the growing speed is known
+        // Case where the plant group is known
         if(plantGroup != null) {
             return plantGroup.toString().toLowerCase();
         }
-        // Case where the growing speed is not known
+        // Case where the plant group is not known
         else {
             return "No-Info";
         }
@@ -194,6 +164,60 @@ public class Plant
     public String toString() 
     {
         return getCommonName() + " (" + getGenusSpecies() + ")";
+    }
+
+    /**
+     * @return the Genus Name input if it meets the rules of a name for a genus species
+     */
+    private static String checkGenusNameValidity(String genusName)
+    {
+        if(genusName != null && genusName.length() >= 7 && genusName.length() <= 39) {
+            return genusName.substring(0, 1).toUpperCase() + genusName.substring(1, genusName.length()).toLowerCase();
+        }
+        else {
+            return "No-Info";
+        }
+    }
+
+    /**
+     * @param plantGroupChoice
+     * @return the PlantGroup option the plant belongs to or a null value if the plant does not belong to anything
+     */
+    private PlantGroup checkPlantGroupValidity(String plantGroupChoice)
+    {
+            // Assign a plant group to the plant
+            if(plantGroupChoice == null) {
+                return null;
+            }
+            else if(plantGroupChoice.equalsIgnoreCase("ANGIOSPERMS")) {
+                return PlantGroup.ANGIOSPERMS;
+            }
+            else if(plantGroupChoice.equalsIgnoreCase("GYMNOSPERMS")) {
+                return PlantGroup.GYMNOSPERMS;
+            }
+            else if(plantGroupChoice.equalsIgnoreCase("PTERIDOPHYTES")) {
+                return PlantGroup.PTERIDOPHYTES;
+            }
+            else if(plantGroupChoice.equalsIgnoreCase("BRYOPHYTES")) {
+                return PlantGroup.BRYOPHYTES;
+            }
+            // Make plantgroup null if the inputed plantgroup doesn't match anything on record
+            else {
+                return null;
+            }
+    }
+
+    /**
+     * @return the common Name input if it meets the rules of a name for a common name
+     */
+    private static String checkCommonNameValidity(String commonName)
+    {
+        if(commonName != null && !commonName.isEmpty()) {
+            return commonName.substring(0, 1).toUpperCase() + commonName.substring(1, commonName.length());
+        }
+        else {
+            return "No-Info";
+        }
     }
 
     /**

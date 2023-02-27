@@ -8,8 +8,8 @@
 
 public class NurseryDriver 
 {
-    private static Plant plant = new Plant(null, null, "Gymnosperms", null, 0, 0);
-    private static Tree tree = new Tree(null, null, null, 0, 0, null);
+    private static Plant plant = new Plant("helloMaya", "se", "Gymnosperms", null, 0, 0);
+    private static Tree tree = new Tree("helloMayo", "bruh", null, 0, 0, null);
     public static void main(String[] args)  {
         System.out.println(plant.getPlantId());
         System.out.println(tree.getPlantId());
@@ -21,5 +21,9 @@ public class NurseryDriver
         System.out.println(plant.growsInZone("5"));
         System.out.println(plant.getPlantGroupAsString());
         System.out.println(tree.getPlantGroupAsString());;
+        System.out.println(plant.getGenusSpecies());
+        System.out.println(plant.getCommonName());
+        System.out.println(tree.getCommonName());
+        System.out.println(tree.getGenusSpecies());
     }
 }
