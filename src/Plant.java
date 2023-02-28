@@ -36,7 +36,7 @@ public class Plant
      * @param plantGroupChoice the plant group chosen for the plant being added to the nursery
      * @param localDateInput the date of entry chosen for the plant being added to the nursery
      */
-    public Plant(String genusSpecies, String commonName, String plantGroupChoice, String dateInput, int lowestTemp, int highestTemp)
+    public Plant(String commonName, String genusSpecies, String plantGroupChoice, String dateInput, int lowestTemp, int highestTemp)
     {
         // Construction scenario where plants have previously been added
         if(latestId != 0) {

@@ -15,10 +15,10 @@ public class Tree extends Plant
      * @param genusSpecies the genus species of the tree instance
      * @param growingSpeedChoice the growing speed of the tree instance
      */
-    public Tree(String genusSpecies, String commonName, String localDateInput, int lowestZoneTemp, int HighestZoneTemp, String growingSpeedChoice)
+    public Tree(String commonName, String genusSpecies, String plantGroupChoice, String localDateInput, int lowestZoneTemp, int HighestZoneTemp, String growingSpeedChoice)
     {
         // Run constructor of super class plant
-        super(genusSpecies, commonName, null, localDateInput, lowestZoneTemp, HighestZoneTemp);
+        super(commonName, genusSpecies, plantGroupChoice, localDateInput, lowestZoneTemp, HighestZoneTemp);
 
         if(growingSpeedChoice != null) {
             // Case where the user puts in that growing speed is fast
