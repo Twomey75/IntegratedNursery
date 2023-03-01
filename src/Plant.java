@@ -37,7 +37,9 @@ public class Plant
      * @param genusSpecies the genus species of the plant
      * @param commonName the commonName of the plant
      * @param plantGroupChoice the plant group chosen for the plant being added to the nursery
-     * @param localDateInput the date of entry chosen for the plant being added to the nursery
+     * @param dateInput the date of entry chosen for the plant being added to the nursery
+     * @param lowestTemp lowest temp the plant can survive in
+     * @param highestTemp highest temp the plant can survive in
      */
     public Plant(String commonName, String genusSpecies, String plantGroupChoice, String dateInput, int lowestTemp, int highestTemp)
     {
@@ -163,7 +165,7 @@ public class Plant
     }
 
     /**
-     * @return that the date added was valid or invalid int
+     * @return that the date added was a valid or invalid int
      * @param number the string with a number that is being tested to see if the string is a number
      */
     private boolean determineIfInt(String number)
@@ -266,7 +268,7 @@ public class Plant
 
     /**
      * @return whether or not the plant can grow in the zone
-     * also I finally was able to use a nice technique to avoid if statement nesting woohoo!
+     * @param zoneNumberInput the number of the zone being checked for suitability of a plant
      */
     public boolean growsInZone(String zoneNumberInput) 
     {
@@ -294,6 +296,8 @@ public class Plant
 
     /**
      * Populates a plant with the different valid zones from Zone class
+     * @param lowestPlantTemp the lowest temperature the plant can survive in
+     * @param highestPlantTemp the highest temperature the plant can survive in
      */
     private void populateZones(int lowestPlantTemp, int highestPlantTemp)
     {
@@ -307,6 +311,11 @@ public class Plant
         }
     }
 
+    /**
+     * compares the dateIntroduced of the current plant with the youngest plant date and oldest plant date to see if it was introduced after or 
+     * before them respectively. It also assigns the oldest and youngest plant dates to the current plants dateIntroduced if the current plant is
+     * the first instance of a plant being created.
+     */
     public void comparePlantDates()
     {
         // Case where no oldest or youngest date exists yet
