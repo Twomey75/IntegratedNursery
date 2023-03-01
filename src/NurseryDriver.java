@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javax.xml.crypto.KeySelector.Purpose;
-
 /**
  * This class allows the user to start and use the program
  *
