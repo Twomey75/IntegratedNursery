@@ -152,7 +152,7 @@ public class Plant
     /**
      * @return the date the plant was introduced to the Nursery as a string
      */
-    public String getDateIntroducedAString()
+    public String getDateIntroducedAsString()
     {
         if(!dateIntroduced.toString().equals("9999-12-31")) {
             return dateIntroduced.toString();

@@ -56,7 +56,7 @@ public class NurseryDriver
         System.out.println(plant.getPlantId());
         System.out.println(plant.toString());
         System.out.println(plant.getClass().getSimpleName());
-        System.out.println("Introduced on " + plant.getDateIntroducedAString());
+        System.out.println("Introduced on " + plant.getDateIntroducedAsString());
         if(plant instanceof Tree)
         {
             System.out.println("a " + ((Tree)plant).getGrowingSpeedAsString() + " growing tree");
