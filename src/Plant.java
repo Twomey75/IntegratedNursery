@@ -107,7 +107,7 @@ public class Plant
     }
 
     /**
-     * @return the group the plant belongs to as a string
+     * @return the group the plant belongs to
      */
     public String getPlantGroupAsString()
     {
@@ -254,13 +254,13 @@ public class Plant
             return false;
         }
         int zoneNum = Integer.parseInt(zoneNumberInput);
-        // Check to make sure the int represents a valid zone
-        if(zoneNum > 11 && zoneNum < 1) {
-            return false;
-        }
         // Check to see if the zone is null
         if(zones.get(zoneNum) == null)
         {
+            return false;
+        }
+        // Check to make sure the int represents a valid zone
+        if(zoneNum > 11 && zoneNum < 1) {
             return false;
         }
         // Case where the zone appears in the Map of zones the plant can grow in
