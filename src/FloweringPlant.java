@@ -1,4 +1,5 @@
 /**
+ * This class is supposed to represent all types of flowering plants
  * @version 2/28/2023
  * @author Mary Lisicki
  */
