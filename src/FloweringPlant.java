@@ -8,6 +8,17 @@ public class FloweringPlant extends Plant
      private String flowerColors;
      private String features;
 
+     /**
+     * Constructor for FloweringPlant
+     * @param genusSpecies the genus species of the plant
+     * @param commonName the commonName of the plant
+     * @param plantGroupChoice the plant group chosen for the plant being added to the nursery
+     * @param localDateInput the date of entry chosen for the plant being added to the nursery
+     * @param lowestZoneTemp the lowest temperature the plant can survive in
+     * @param highestZoneTemp the highest temperature the plant can survive in
+     * @param flowerColors the colors the plant can be
+     * @param features the features of the plant
+     */
     public FloweringPlant(String genusSpecies, String commonName, String plantGroupChoice, String localDateInput, int lowestZoneTemp, int highestZoneTemp, String flowerColors, String features)
     {
         super(genusSpecies, commonName, plantGroupChoice, localDateInput, lowestZoneTemp, highestZoneTemp);
