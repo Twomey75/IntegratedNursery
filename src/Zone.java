@@ -15,7 +15,7 @@ public class Zone {
     
     public static HashMap<Integer, Zone> zones = new HashMap<Integer, Zone>();
         static {
-            zones.put(1, new Zone(1, -50, -50));
+            zones.put(1, new Zone(1, -51, -50));
             zones.put(2, new Zone(2, -50, -40));
             zones.put(3, new Zone(3, -40, -30));
             zones.put(4, new Zone(4, -30, -20));

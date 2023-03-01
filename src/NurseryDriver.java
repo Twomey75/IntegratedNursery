@@ -69,23 +69,26 @@ public class NurseryDriver
         }
         if(wayToEvaluate.equalsIgnoreCase("least"))
         {
-            System.out.println("least experienced: " + plant.plantTest.get("least_experienced").test(plant));
+            System.out.println("least experienced: " + Plant.plantTest.get("least_experienced").test(plant));
         }
         if(wayToEvaluate.equalsIgnoreCase("most"))
         {
-            System.out.println("most experienced: " + plant.plantTest.get("most_experienced").test(plant));
+            System.out.println("most experienced: " + Plant.plantTest.get("most_experienced").test(plant));
         }
         System.out.println("good for your zone: " + plant.growsInZone(zoneNumberInput) + "\n");
     }
-
+    
+    // Method to create a plant
     private static void createPlant(String commonName, String genusSpecies, String plantGroupChoice, String dateInput, int lowestTemp, int highestTemp)
     {
         plants.add(new Plant(commonName, genusSpecies, plantGroupChoice, dateInput, lowestTemp, highestTemp));
     }
+    // Method to create a tree
     private static void createTree(String commonName, String genusSpecies, String plantGroupChoice, String dateInput, int lowestTemp, int highestTemp, String growingSpeedChoice)
     {
         plants.add(new Tree(commonName, genusSpecies, plantGroupChoice, dateInput, lowestTemp, highestTemp, growingSpeedChoice));
     }
+    // Method to create a FloweringPlant
     private static void createFloweringPlant(String commonName, String genusSpecies, String plantGroupChoice, String dateInput, int lowestTemp, int highestTemp, String flowerColors, String features)
     {
         plants.add(new FloweringPlant(commonName, genusSpecies, plantGroupChoice, dateInput, lowestTemp, highestTemp, flowerColors, features));
