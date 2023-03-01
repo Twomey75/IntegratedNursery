@@ -20,7 +20,7 @@ public class FloweringPlant extends Plant
             this.flowerColors = flowerColors;
         }
 
-        if (features.isEmpty() || features == null)
+        if (features == null || features.isEmpty())
         {
             features = getDefaultName();
         }
