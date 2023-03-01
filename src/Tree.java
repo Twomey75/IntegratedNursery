@@ -58,19 +58,4 @@ public class Tree extends Plant
             return getDefaultName();
         }
     }
-
-    /**
-     * @Override the original toString() method in Plant
-     * @return the formated string of the tree
-     */
-    public String toString() 
-    {
-        // Case where there is a known growing speed
-        if(growingSpeed != null) {
-            return getCommonName() + " (" + getGenusSpecies() + ")," + " a " + getGrowingSpeedAsString() + "-growing tree.";
-        }
-        else {
-            return getCommonName() + " (" + getGenusSpecies() + ")," + " a tree with No info on it's growing Speed.";
-        }
-    }
 }
