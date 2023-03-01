@@ -12,13 +12,18 @@ public class Tree extends Plant
 
     /**
      * Constructor for tree
-     * @param genusSpecies the genus species of the tree instance
+     * @param commonName the commonName of the plant
+     * @param genusSpecies the genus species of the plant
+     * @param plantGroupChoice the plant group chosen for the plant being added to the nursery
+     * @param localDateInput the date of entry chosen for the plant being added to the nursery
+     * @param lowestZoneTemp lowest temp the plant can survive in
+     * @param highestZoneTemp highest temp the plant can survive in
      * @param growingSpeedChoice the growing speed of the tree instance
      */
-    public Tree(String commonName, String genusSpecies, String plantGroupChoice, String localDateInput, int lowestZoneTemp, int HighestZoneTemp, String growingSpeedChoice)
+    public Tree(String commonName, String genusSpecies, String plantGroupChoice, String localDateInput, int lowestZoneTemp, int highestZoneTemp, String growingSpeedChoice)
     {
         // Run constructor of super class plant
-        super(commonName, genusSpecies, plantGroupChoice, localDateInput, lowestZoneTemp, HighestZoneTemp);
+        super(commonName, genusSpecies, plantGroupChoice, localDateInput, lowestZoneTemp, highestZoneTemp);
 
         if(growingSpeedChoice != null) {
             // Case where the user puts in that growing speed is fast
