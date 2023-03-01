@@ -24,7 +24,6 @@ public class NurseryDriver
         plants = new ArrayList<Plant>();
         // Add the hard coded plants
         createTree("Bloodgood Japanese Maple", "Acer palmatum", "Gymnosperm", "2016-01-02", -10, 20, "fast");
-        createFloweringPlant("Flower", "Flowie :)", "Angiosperm", "2015-01-02", -10, 20, "Red , Blue", "Silky");
         // 5 questions to the user
         System.out.println("What zone are you currently in?");
         zoneNumberInput = scan.nextLine();
@@ -50,6 +49,7 @@ public class NurseryDriver
 
     private static void printInfoOnPlant(Plant plant)
     {
+        System.out.println(plant.getPlantId());
         System.out.println(plant.toString());
         System.out.println(plant.getClass().getSimpleName());
         System.out.println("Introduced on " + plant.getDateIntroducedAString());

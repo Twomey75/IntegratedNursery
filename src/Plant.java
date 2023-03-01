@@ -61,6 +61,9 @@ public class Plant
         if(validdateInput(dateInput)) {
             dateIntroduced = LocalDate.of(Integer.parseInt(dateInput.substring(0,4)), Integer.parseInt(dateInput.substring(5,7)), Integer.parseInt(dateInput.substring(8,10)));
         }
+        else {
+            dateIntroduced = LocalDate.of(9999,12,31);
+        }
         // Assign Zones to the plant based off of the highest and lowest temps it can survive in provided by the user
         populateZones(lowestTemp, highestTemp);
         // Check the new plants date against oldest and youngest plant date and do assignments accordingly
@@ -151,7 +154,7 @@ public class Plant
      */
     public String getDateIntroducedAString()
     {
-        if(dateIntroduced != null) {
+        if(!dateIntroduced.toString().equals("9999-12-31")) {
             return dateIntroduced.toString();
         }
         else {
