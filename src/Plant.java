@@ -55,12 +55,12 @@ public class Plant
         // Assign a plant group if input is valid and matches a plant group listed in PlantGroups
         this.plantGroup = checkPlantGroupValidity(plantGroupChoice);
         // Implementation of setting the year introduced, a method could be made to make the assignment of dateIntroduced more clean
-        if(validYearInput(dateInput)) {
+        if(validdateInput(dateInput)) {
             dateIntroduced = LocalDate.of(Integer.parseInt(dateInput.substring(0,4)), Integer.parseInt(dateInput.substring(5,7)), Integer.parseInt(dateInput.substring(8,10)));
         }
         //assign 0000-01-01 if date introduced is not valid (no valid date)
         else {
-            dateIntroduced = LocalDate.of(0000,01,01);
+            dateIntroduced = null;
         }
         // Assign Zones to the plant based off of the highest and lowest temps it can survive in provided by the user
         populateZones(lowestTemp, highestTemp);
@@ -161,11 +161,11 @@ public class Plant
 
     /**
      * @return that the date added was valid or invalid int
-     * @param yearInput the year string the user initially puts in that gets checked
+     * @param dateInput the year string the user initially puts in that gets checked
      */
-    private boolean validYearInput(String yearInput)
+    private boolean validdateInput(String dateInput)
     {
-        if(yearInput != null && yearInput.length() == 10 && determineIfInt(yearInput.substring(0,4)) && determineIfInt(yearInput.substring(5,7)) && determineIfInt(yearInput.substring(8,10))) {
+        if(dateInput != null && dateInput.length() == 10 && determineIfInt(dateInput.substring(0,4)) && determineIfInt(dateInput.substring(5,7)) && determineIfInt(dateInput.substring(8,10))) {
             // return true if the year is valid
             return true;
         }
