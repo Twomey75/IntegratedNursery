@@ -1,15 +1,49 @@
 /**
  * 
- * @version 
+ * @version 2/28/2023
  * @author Mary Lisicki
  */
 
 public class FloweringPlant extends Plant 
 {
-     
-    public FloweringPlant(String genusSpecies, String commonName, String plantGroupChoice, String localDateInput, int lowestZoneTemp, int HighestZoneTemp)
+     private String flowerColors;
+     private String features;
+
+    public FloweringPlant(String genusSpecies, String commonName, String plantGroupChoice, String localDateInput, int lowestZoneTemp, int highestZoneTemp, String flowerColors, String features)
     {
         // Run constructor of super class plant
-        super(genusSpecies, commonName, plantGroupChoice, localDateInput, lowestZoneTemp, HighestZoneTemp);
+        super(genusSpecies, commonName, plantGroupChoice, localDateInput, lowestZoneTemp, highestZoneTemp);
+        if (flowerColors.isEmpty() || flowerColors == null)
+        {
+            flowerColors = getDefaultName();
+        }
+        else
+        {
+        this.flowerColors = flowerColors;
+        }
+
+        if (features.isEmpty() || features == null)
+        {
+            features = getDefaultName();
+        }
+        else{
+        this.features = features; 
+        }
+
+    }
+
+    public String getFlowerColors()
+    {
+        return flowerColors;
+    }
+
+    public String getFeatures()
+    {
+        return features;
+    }
+    
+    public String printDescription()
+    {
+        return features + " plant with " + flowerColors + " colors";
     }
 }
