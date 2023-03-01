@@ -23,15 +23,15 @@ public class Tree extends Plant
         if(growingSpeedChoice != null) {
             // Case where the user puts in that growing speed is fast
             if(growingSpeedChoice.equalsIgnoreCase("fast")) {
-                growingSpeed = GrowingSpeed.FAST;
+                this.growingSpeed = GrowingSpeed.FAST;
             }
             // Case where the user puts in that growing speed is slow 
             else if(growingSpeedChoice.equalsIgnoreCase("slow")) {
-                growingSpeed = GrowingSpeed.SLOW;
+                this.growingSpeed = GrowingSpeed.SLOW;
             }
             // Case where no valid speed is put in so growing speed assumes a default value of null
             else {
-                growingSpeed = null;
+                this.growingSpeed = null;
             }
         }
     }

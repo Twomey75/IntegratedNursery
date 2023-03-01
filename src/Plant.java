@@ -232,17 +232,17 @@ public class Plant
             if(plantGroupChoice == null) {
                 return null;
             }
-            else if(plantGroupChoice.equalsIgnoreCase("ANGIOSPERMS")) {
-                return PlantGroup.ANGIOSPERMS;
+            else if(plantGroupChoice.equalsIgnoreCase("ANGIOSPERM")) {
+                return PlantGroup.ANGIOSPERM;
             }
-            else if(plantGroupChoice.equalsIgnoreCase("GYMNOSPERMS")) {
-                return PlantGroup.GYMNOSPERMS;
+            else if(plantGroupChoice.equalsIgnoreCase("GYMNOSPERM")) {
+                return PlantGroup.GYMNOSPERM;
             }
-            else if(plantGroupChoice.equalsIgnoreCase("PTERIDOPHYTES")) {
-                return PlantGroup.PTERIDOPHYTES;
+            else if(plantGroupChoice.equalsIgnoreCase("PTERIDOPHYTE")) {
+                return PlantGroup.PTERIDOPHYTE;
             }
-            else if(plantGroupChoice.equalsIgnoreCase("BRYOPHYTES")) {
-                return PlantGroup.BRYOPHYTES;
+            else if(plantGroupChoice.equalsIgnoreCase("BRYOPHYTE")) {
+                return PlantGroup.BRYOPHYTE;
             }
             // Make plantgroup null if the inputed plantgroup doesn't match anything on record
             else {

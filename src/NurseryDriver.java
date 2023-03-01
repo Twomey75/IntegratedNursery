@@ -23,7 +23,11 @@ public class NurseryDriver
         // Initialize plants arraylist
         plants = new ArrayList<Plant>();
         // Add the hard coded plants
-        createTree("Bloodgood Japanese Maple", "Acer palmatum", "Gymnosperm", "2016-01-02", -10, 20, "fast");
+        createTree("Bloodgood Japanese Maple", "Acer palmatum", "Gymnosperm", "2008-02-26", -10, 20, "fast");
+        createTree("Hemlock Tree", "Tsuga canadensis", "Gymnosperm", "2017-05-14", -40, 10, "slow");
+        createFloweringPlant("Orange Jasmine", "Murraya paniculata", "Angiosperm", "2015-01-23", 20, 30, "white", "orange-scented");
+        createFloweringPlant("Lily-of-the-Valley", "Convallaria majalis", "Angiosperm", "2014-09-17", -20, 20, "white, pink, or red", "delicate, fragrant");
+
         // 5 questions to the user
         System.out.println("What zone are you currently in?");
         zoneNumberInput = scan.nextLine();
@@ -56,6 +60,10 @@ public class NurseryDriver
         if(plant instanceof Tree)
         {
             System.out.println("a " + ((Tree)plant).getGrowingSpeedAsString() + " growing tree");
+        }
+        if(plant instanceof FloweringPlant)
+        {
+            System.out.println(((FloweringPlant)plant).printDescription());
         }
         if(wayToEvaluate.equalsIgnoreCase("least"))
         {

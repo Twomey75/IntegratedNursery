@@ -8,8 +8,8 @@
 
 public enum PlantGroup 
 {
-    ANGIOSPERMS,
-    GYMNOSPERMS,
-    PTERIDOPHYTES,
-    BRYOPHYTES
+    ANGIOSPERM,
+    GYMNOSPERM,
+    PTERIDOPHYTE,
+    BRYOPHYTE
 }
