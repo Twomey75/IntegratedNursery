@@ -2,6 +2,7 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.function.Predicate;
 
+
 /**
  * 
  * This class is supposed to represent the basic concept of a plant
@@ -20,13 +21,15 @@ public class Plant
     private PlantGroup plantGroup;
     private LocalDate dateIntroduced;
     private HashMap<Integer, Zone> zones;
+    private static LocalDate oldestPlantDate;
+    private static LocalDate youngestPlantDate;
     private static final String defaultName = "No-Info";
 
     public static HashMap<String, Predicate<Plant>> plantTest;
         static {
             plantTest = new HashMap<>();
-            plantTest.put("most_experienced", Plant -> Plant.getCommonName() != null);
-            plantTest.put("least_experienced", Plant -> Plant.getCommonName() == null);
+            plantTest.put("most_experienced", Plant -> Plant.getDateIntroduced().equals(oldestPlantDate));
+            plantTest.put("least_experienced", Plant -> Plant.getDateIntroduced().equals(youngestPlantDate));
         }
 
     /**
@@ -58,12 +61,10 @@ public class Plant
         if(validdateInput(dateInput)) {
             dateIntroduced = LocalDate.of(Integer.parseInt(dateInput.substring(0,4)), Integer.parseInt(dateInput.substring(5,7)), Integer.parseInt(dateInput.substring(8,10)));
         }
-        //assign 0000-01-01 if date introduced is not valid (no valid date)
-        else {
-            dateIntroduced = null;
-        }
         // Assign Zones to the plant based off of the highest and lowest temps it can survive in provided by the user
         populateZones(lowestTemp, highestTemp);
+        // Check the new plants date against oldest and youngest plant date and do assignments accordingly
+        comparePlantDates();
     }
 
     /**
@@ -104,6 +105,22 @@ public class Plant
     public String getDefaultName()
     {
         return defaultName;
+    }
+
+    /**
+     * @return the oldest plant date
+     */
+    public LocalDate getOldestDate()
+    {
+        return oldestPlantDate;
+    }
+
+    /**
+     * @return the oldest plant date
+     */
+    public LocalDate getYoungestDate()
+    {
+        return youngestPlantDate;
     }
 
     /**
@@ -155,7 +172,6 @@ public class Plant
             //Case where the date number entered is invalid
             return false;
         }
-        testInt = testInt + 1;
         //Case where the date number entered is valid
         return true;
     }
@@ -284,6 +300,26 @@ public class Plant
             if(lowestPlantTemp <= currentZone.getLowTemp() && highestPlantTemp >= currentZone.getHighTemp()) {
                 zones.put(currentZone.getZoneNumber(), currentZone);
             }
+        }
+    }
+
+    public void comparePlantDates()
+    {
+        // Case where no oldest or youngest date exists yet
+        if(oldestPlantDate == null && youngestPlantDate == null)
+        {
+            oldestPlantDate = dateIntroduced;
+            youngestPlantDate = dateIntroduced;
+        }
+        // Check if the new plant date is older than the current oldest plant date
+        if(dateIntroduced.isBefore(oldestPlantDate))
+        {
+            oldestPlantDate = dateIntroduced;
+        }
+        // Check if the new plant date is younger than the current youngest plant date
+        if(dateIntroduced.isAfter(youngestPlantDate))
+        {
+            youngestPlantDate = dateIntroduced;
         }
     }
 }

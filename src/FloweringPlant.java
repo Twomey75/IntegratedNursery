@@ -1,5 +1,4 @@
 /**
- * 
  * @version 2/28/2023
  * @author Mary Lisicki
  */
@@ -13,13 +12,13 @@ public class FloweringPlant extends Plant
     {
         // Run constructor of super class plant
         super(genusSpecies, commonName, plantGroupChoice, localDateInput, lowestZoneTemp, highestZoneTemp);
-        if (flowerColors.isEmpty() || flowerColors == null)
+        if (flowerColors == null || flowerColors.isEmpty())
         {
             flowerColors = getDefaultName();
         }
         else
         {
-        this.flowerColors = flowerColors;
+            this.flowerColors = flowerColors;
         }
 
         if (features.isEmpty() || features == null)
@@ -27,7 +26,7 @@ public class FloweringPlant extends Plant
             features = getDefaultName();
         }
         else{
-        this.features = features; 
+            this.features = features; 
         }
 
     }
