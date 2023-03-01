@@ -4,7 +4,13 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
+        {
+            "type": "java",
+            "name": "NurseryDriver",
+            "request": "launch",
+            "mainClass": "NurseryDriver",
+            "projectName": "IntegratedNursery_9470d68e"
+        },
         {
             "type": "java",
             "name": "Current File",
