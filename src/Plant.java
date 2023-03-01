@@ -155,6 +155,7 @@ public class Plant
             //Case where the date number entered is invalid
             return false;
         }
+        testInt = testInt + 1;
         //Case where the date number entered is valid
         return true;
     }
