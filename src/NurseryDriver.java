@@ -53,6 +53,10 @@ public class NurseryDriver
         }
     }
 
+    /**
+     * Prints information about a plant.
+     * @param plant plant to print info
+     */
     private static void printInfoOnPlant(Plant plant)
     {
         System.out.println(plant.getPlantId());
