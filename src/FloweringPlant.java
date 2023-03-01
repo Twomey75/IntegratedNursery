@@ -48,7 +48,7 @@ public class FloweringPlant extends Plant
     /**
      * @return description of the plant
      */
-    public String printDescription()
+    public String getDescription()
     {
         return features + " plant with " + flowerColors + " colors";
     }

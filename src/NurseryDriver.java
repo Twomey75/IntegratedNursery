@@ -65,7 +65,7 @@ public class NurseryDriver
         }
         if(plant instanceof FloweringPlant)
         {
-            System.out.println(((FloweringPlant)plant).printDescription());
+            System.out.println(((FloweringPlant)plant).getDescription());
         }
         if(wayToEvaluate.equalsIgnoreCase("least"))
         {
