@@ -30,10 +30,32 @@ public class NurseryDriver
         System.out.println("Enter the scientific name of the plant (make one up!)");
         scientificNameInput = scan.nextLine();
         System.out.println("Enter when the plant was first introduced to the nursery [YYYY-MM-DD]");
-        dateIntroducedInput = scan.nextLine();
+        dateIntroducedInput = scan.nextLine().replaceAll("\\s", "");;
 
-        Plant userPlant = new Plant(commonNameInput, scientificNameInput, dateIntroducedInput, commonNameInput, 0, 0);
+        Plant userPlant = new Plant(commonNameInput, scientificNameInput, null, dateIntroducedInput, 0, 0);
         // Printing the results of the user's input
         System.out.println("\n--------------- Results -------------\n");
+        printInfoOnPlant(bloodJapanMaple);
+        printInfoOnPlant(userPlant);
+    }
+
+    private static void printInfoOnPlant(Plant plant)
+    {
+        System.out.println(plant.toString());
+        System.out.println(plant.getClass().getSimpleName());
+        System.out.println("Introduced on " + plant.getDateIntroducedAString());
+        if(plant instanceof Tree)
+        {
+            System.out.println("a " + ((Tree)plant).getGrowingSpeedAsString() + " growing tree");
+        }
+        if(wayToEvaluate.equalsIgnoreCase("least"))
+        {
+            System.out.println("least experienced: ");
+        }
+        if(wayToEvaluate.equalsIgnoreCase("most"))
+        {
+            System.out.println("most experienced: ");
+        }
+        System.out.println("good for your zone: " + plant.growsInZone(zoneNumberInput) + "\n");
     }
 }
