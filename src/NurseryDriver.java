@@ -39,6 +39,8 @@ public class NurseryDriver
         scientificNameInput = scan.nextLine();
         System.out.println("Enter when the plant was first introduced to the nursery [YYYY-MM-DD]");
         dateIntroducedInput = scan.nextLine();
+        // Close the scanner after being done with the questions
+        scan.close();
 
         // Create the users plant
         createPlant(commonNameInput, scientificNameInput, null, dateIntroducedInput, 0, 0);
