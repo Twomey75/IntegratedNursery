@@ -28,6 +28,13 @@ public class Zone {
             zones.put(11, new Zone(11, 40, 50));
         }
 
+        
+    /**
+     * Constructor for Zone
+     * @param zoneNumber represents one of the 11 Arnold Aboretum map defined zones
+     * @param lowTemperature lowest temperature for specified zone number
+     * @param highTemperature highest temperature for specified zone number
+     */    
     private Zone(int zoneNumber, int lowTemperature, int highTemperature)
     {
         this.lowTemperature = lowTemperature;
@@ -51,11 +58,18 @@ public class Zone {
         return highTemperature;
     }
 
+    /**
+     * @param index zone number
+     * @return zone
+     */
     public static Zone getZone(int index)
     {
         return zones.get(index);
     }
 
+    /**
+     * @return the zone number
+     */
     public int getZoneNumber()
     {
         return zoneNumber;
